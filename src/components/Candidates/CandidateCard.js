@@ -47,7 +47,7 @@ const CandidateCard = ({ candidate, onStageChange, view = 'list', onOpen }) => {
             <Link
               to={`/candidates/${candidate.id}`}
               className="candidate-link"
-              onClick={onOpen ? (e) => { e.preventDefault(); onOpen(); } : undefined}
+              onClick={onOpen ? (e) => { e.preventDefault(); onOpen(candidate.id); } : undefined}
             >
               {candidate.name}
             </Link>

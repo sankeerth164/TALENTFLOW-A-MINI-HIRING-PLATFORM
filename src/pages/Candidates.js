@@ -133,7 +133,7 @@ const Candidates = () => {
           candidate={candidate}
           onStageChange={handleStageChange}
           view="list"
-          onOpen={() => setActiveCandidateId(candidate.id)}
+          onOpen={(candidateId) => setActiveCandidateId(candidateId)}
         />
       </div>
     );
