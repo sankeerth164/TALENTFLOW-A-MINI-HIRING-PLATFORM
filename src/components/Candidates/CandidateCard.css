@@ -1,0 +1,144 @@
+.candidate-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 18px;
+  margin: 16px 0; /* vertical spacing between cards */
+  transition: all 0.2s;
+  position: relative;
+}
+
+.candidate-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-color: #d1d5db;
+}
+
+.candidate-card.kanban {
+  margin-bottom: 12px;
+  cursor: grab;
+}
+
+.candidate-card.kanban:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.candidate-card.kanban .candidate-link {
+  pointer-events: none;
+}
+
+.candidate-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.candidate-info {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  grid-column-gap: 12px;
+  align-items: center;
+}
+
+.candidate-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #eef2ff;
+  color: #3730a3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.candidate-name {
+  margin: 0 0 2px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.candidate-link {
+  color: #111827;
+  text-decoration: none;
+}
+
+.candidate-link:hover {
+  color: #3b82f6;
+}
+
+.candidate-email {
+  margin: 0;
+  font-size: 14px;
+  color: #6b7280;
+  word-break: break-all;
+}
+
+.candidate-status {
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.candidate-meta {
+  margin-bottom: 12px;
+}
+
+.candidate-dates {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.candidate-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.stage-select {
+  padding: 4px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 12px;
+  background: white;
+  cursor: pointer;
+}
+
+.stage-select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.updating-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.text-muted {
+  color: #6b7280;
+}
+
+@media (max-width: 768px) {
+  .candidate-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .candidate-status {
+    margin-left: 0;
+    align-self: flex-start;
+  }
+}

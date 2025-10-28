@@ -1,0 +1,279 @@
+.candidate-detail {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.candidate-detail-header {
+  margin-bottom: 32px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.back-link:hover {
+  color: #2563eb;
+}
+
+.candidate-header-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.candidate-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.candidate-info h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 6px;
+  line-height: 1.15;
+  word-break: break-word;
+}
+
+.candidate-email {
+  font-size: 16px;
+  color: #6b7280;
+  margin-bottom: 12px;
+  display: block;
+  word-break: break-word;
+}
+
+.candidate-status {
+  margin-bottom: 16px;
+}
+
+.candidate-actions {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.candidate-detail-content {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr 1.1fr; /* info | notes | timeline */
+  gap: 24px;
+  align-items: start; /* prevent cards from stretching to equal height */
+}
+
+.candidate-details {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.info-section {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.info-section h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 16px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-item label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.info-item span {
+  font-size: 14px;
+  color: #111827;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-badge.applied {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.status-badge.screen {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.status-badge.tech {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.status-badge.offer {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.status-badge.hired {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.status-badge.rejected {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.candidate-notes {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+  align-self: start; /* keep compact height */
+}
+
+.candidate-notes h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 16px;
+}
+
+.notes-section {
+  position: relative;
+}
+
+.notes-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.mention-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 4px;
+}
+
+.mention-item {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  background: white;
+  text-align: left;
+  cursor: pointer;
+}
+
+.mention-item:hover {
+  background: #f3f4f6;
+}
+
+.stage-update-section {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.stage-update-section label {
+  font-weight: 500;
+  color: #374151;
+}
+
+.stage-select {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.candidate-timeline {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.candidate-timeline h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 16px;
+}
+
+.error-state {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.error-state h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.error-state p {
+  color: #6b7280;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+  .candidate-header-content {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .candidate-detail-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .candidate-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+  
+  .candidate-actions .btn {
+    flex: 1;
+  }
+}
