@@ -46,6 +46,30 @@ const Assessments = () => {
     fetchAssessments();
   }, [fetchAssessments]);
 
+  const handleDelete = async (jobId, event) => {
+    // Prevent the parent Link navigation
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    const confirmed = window.confirm('Delete this assessment? This cannot be undone.');
+    if (!confirmed) return;
+
+    try {
+      const response = await fetch(`/api/assessments/${jobId}`, { method: 'DELETE' });
+      if (response.ok || response.status === 204) {
+        // Refresh list
+        fetchAssessments();
+      } else {
+        const data = await response.json().catch(() => ({}));
+        alert(data.error || 'Failed to delete assessment');
+      }
+    } catch (err) {
+      alert('Network error while deleting assessment');
+    }
+  };
+
   const handleSearch = (e) => {
     setSearchInput(e.target.value);
   };
@@ -136,7 +160,17 @@ const Assessments = () => {
                 <span className="date-info">
                   Created: {formatDate(assessment.createdAt)}
                 </span>
-                <span className="action-link">Edit Assessment →</span>
+                <div className="assessment-actions" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 6 }}>
+                  <span className="action-link">Edit Assessment →</span>
+                  <button
+                    type="button"
+                    className="btn btn-danger btn-sm"
+                    onClick={(e) => handleDelete(assessment.jobId, e)}
+                    style={{ marginTop: 4 }}
+                  >
+                    Delete Assessment
+                  </button>
+                </div>
               </div>
             </Link>
           ))

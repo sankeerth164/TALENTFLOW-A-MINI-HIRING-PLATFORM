@@ -517,6 +517,27 @@ export const assessmentsHandlers = [
       );
     }
   })
+  ,
+  // DELETE /assessments/:jobId
+  rest.delete('/api/assessments/:jobId', async (req, res, ctx) => {
+    try {
+      await delay(200 + Math.random() * 1000);
+      const { jobId } = req.params;
+
+      const existing = await db.assessments.where('jobId').equals(jobId).first();
+      if (!existing) {
+        return res(ctx.status(404), ctx.json({ error: 'Assessment not found' }));
+      }
+
+      await db.assessments.where('jobId').equals(jobId).delete();
+      return res(ctx.status(204));
+    } catch (error) {
+      return res(
+        ctx.status(500),
+        ctx.json({ error: 'Internal server error', details: error.message })
+      );
+    }
+  })
 ];
 
 // Static asset handlers
