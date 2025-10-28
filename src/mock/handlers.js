@@ -202,6 +202,20 @@ const candidatesHandlers = [
     });
   }),
 
+  // GET /api/candidates/:id
+  http.get('/api/candidates/:id', async ({ params }) => {
+    await delay(200 + Math.random() * 1000);
+    
+    const { id } = params;
+    const candidate = await db.candidates.get(id);
+    
+    if (!candidate) {
+      return HttpResponse.json({ error: 'Candidate not found' }, { status: 404 });
+    }
+    
+    return HttpResponse.json(candidate);
+  }),
+
   // POST /api/candidates
   http.post('/api/candidates', async ({ request }) => {
     try {
