@@ -55,6 +55,20 @@ const jobsHandlers = [
     });
   }),
 
+  // GET /api/jobs/:id
+  http.get('/api/jobs/:id', async ({ params }) => {
+    await delay(200 + Math.random() * 1000);
+    
+    const { id } = params;
+    const job = await db.jobs.get(id);
+    
+    if (!job) {
+      return HttpResponse.json({ error: 'Job not found' }, { status: 404 });
+    }
+    
+    return HttpResponse.json(job);
+  }),
+
   // POST /api/jobs
   http.post('/api/jobs', async ({ request }) => {
     try {

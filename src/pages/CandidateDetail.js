@@ -13,7 +13,7 @@ const CandidateDetail = () => {
   const [note, setNote] = useState('');
   const [showMentions, setShowMentions] = useState(false);
   const [mentionSuggestions, setMentionSuggestions] = useState([]);
-  const [selectedStage, setSelectedStage] = useState('');
+  const [job, setJob] = useState(null);
 
   useEffect(() => {
     const fetchCandidate = async () => {
@@ -34,6 +34,15 @@ const CandidateDetail = () => {
         if (timelineResponse.ok) {
           const timelineData = await timelineResponse.json();
           setTimeline(timelineData);
+        }
+
+        // Fetch job details if candidate has jobId
+        if (candidateData.jobId) {
+          const jobResponse = await fetch(`/api/jobs/${candidateData.jobId}`);
+          if (jobResponse.ok) {
+            const jobData = await jobResponse.json();
+            setJob(jobData);
+          }
         }
       } catch (err) {
         setError('Network error');
@@ -157,9 +166,19 @@ const CandidateDetail = () => {
             </div>
           </div>
           <div className="candidate-actions">
-            <Link to={`/jobs/${candidate.jobId}`} className="btn btn-outline">
-              View Job
-            </Link>
+            {job ? (
+              <Link to={`/jobs/${candidate.jobId}`} className="btn btn-outline">
+                View Job: {job.title}
+              </Link>
+            ) : candidate.jobId ? (
+              <span className="btn btn-outline disabled">
+                Job not found
+              </span>
+            ) : (
+              <span className="btn btn-outline disabled">
+                No job assigned
+              </span>
+            )}
           </div>
         </div>
       </div>
