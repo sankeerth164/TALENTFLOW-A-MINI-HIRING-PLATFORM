@@ -8,20 +8,25 @@ const shouldEnableMocks =
   process.env.NODE_ENV === 'development' ||
   process.env.REACT_APP_ENABLE_MOCK === 'true';
 
-if (shouldEnableMocks) {
-  const startMSW = async () => {
-    try {
-      const { worker, startOptions } = require('./mock/browser');
-      await worker.start(startOptions);
-      console.log('[MSW] Mock Service Worker started');
-    } catch (error) {
-      console.error('[MSW] Failed to start Mock Service Worker:', error);
-    }
-  };
-  startMSW();
+async function enableMocking() {
+  if (!shouldEnableMocks) {
+    return;
+  }
+
+  const { worker, startOptions } = await import('./mock/browser');
+  
+  // Start the worker
+  await worker.start(startOptions);
+  console.log('[MSW] Mock Service Worker started');
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <App />
-);
+// Start MSW before rendering the app
+enableMocking().then(() => {
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  root.render(<App />);
+}).catch((error) => {
+  console.error('[MSW] Failed to start Mock Service Worker:', error);
+  // Render app anyway
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  root.render(<App />);
+});
