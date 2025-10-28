@@ -14,6 +14,7 @@ const CandidateDetail = () => {
   const [showMentions, setShowMentions] = useState(false);
   const [mentionSuggestions, setMentionSuggestions] = useState([]);
   const [job, setJob] = useState(null);
+  const [selectedStage, setSelectedStage] = useState('');
 
   useEffect(() => {
     const fetchCandidate = async () => {
