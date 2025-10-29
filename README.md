@@ -2,6 +2,12 @@
 
 A comprehensive React-based hiring platform that allows HR teams to manage jobs, candidates, and assessments with a modern, intuitive interface.
 
+## 🌐 Live Demo
+
+**🚀 [View Live Application](https://talentflowhiringplatform.netlify.app/jobs)**
+
+Experience the full platform with sample data including 25 jobs, 1000+ candidates, and interactive assessments.
+
 ## Features
 
 ### Jobs Management
@@ -175,6 +181,12 @@ src/
 
 ## Deployment
 
+### 🌐 Live Deployment
+This application is currently deployed on **Netlify**:
+- **Live URL**: [https://talentflowhiringplatform.netlify.app/jobs](https://talentflowhiringplatform.netlify.app/jobs)
+- **Auto-deployment**: Connected to GitHub main branch
+- **Build Status**: Automatically builds on every commit
+
 ### Build for Production
 ```bash
 npm run build
@@ -187,7 +199,7 @@ REACT_APP_ENABLE_MOCK=true               # Enable MSW in production
 ```
 
 ### Deployment Options
-- **Netlify**: Static site deployment
+- **Netlify**: ✅ Currently deployed (Static site deployment)
 - **Vercel**: Serverless deployment
 - **GitHub Pages**: Free hosting for public repos
 - **AWS S3**: Static website hosting
