@@ -2,7 +2,7 @@
 
 A comprehensive React-based hiring platform that allows HR teams to manage jobs, candidates, and assessments with a modern, intuitive interface.
 
-## Live Demo
+## Live-Demo
 
 **[View Live Application](https://talentflowhiringplatform.netlify.app/jobs)**
 
