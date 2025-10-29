@@ -29,8 +29,16 @@ const AssessmentBuilder = () => {
             setAssessmentData(data);
             setError(null);
           } else {
-            console.log('[AssessmentBuilder] Assessment data is null');
-            setError('Assessment not found');
+            console.log('[AssessmentBuilder] No assessment exists yet, creating new one');
+            // No assessment exists yet, create a new empty one
+            const newAssessment = {
+              jobId: jobId,
+              title: '',
+              sections: []
+            };
+            setAssessment(newAssessment);
+            setAssessmentData(newAssessment);
+            setError(null);
           }
         } else {
           const errorData = await response.json();
@@ -106,7 +114,7 @@ const AssessmentBuilder = () => {
         </Link>
         <h1>Assessment Builder</h1>
         <p className="assessment-subtitle">
-          {assessmentData?.title || 'Create assessment for this job'}
+          {assessmentData?.title || 'Create a new assessment for this job'}
         </p>
       </div>
 
